@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mush! Community - Write a Review</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <!--Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/de938dcd38.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--JS-->
+    <script src="assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <!--Styling-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+
+      *,
+      body {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      html,
+      body {
+        height: 100%;
+        background-color: rgb(113, 72, 32, 1);
+        overflow: hidden;
+      }
+
+      .form-holder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh;
+      }
+
+      .form-holder .form-content {
+        position: relative;
+        text-align: center;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 60px;
+      }
+
+      .form-content .form-items {
+        border: 3px solid #fff;
+        padding: 40px;
+        display: inline-block;
+        width: 100%;
+        min-width: 540px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        text-align: left;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+      }
+
+      .form-items {
+        background: linear-gradient(
+          -45deg,
+          rgba(113, 72, 32, 0.75) 0%,
+          rgba(81, 93, 51, 1) 100%
+        ) !important;
+      }
+
+      .form-content h3 {
+        color: #fff;
+        text-align: left;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .form-content h3.form-title {
+        margin-bottom: 30px;
+      }
+
+      .form-content p {
+        color: #fff;
+        text-align: left;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 20px;
+        margin-bottom: 30px;
+      }
+
+      .form-content label,
+      .was-validated .form-check-input:invalid ~ .form-check-label,
+      .was-validated .form-check-input:valid ~ .form-check-label {
+        color: #fff;
+      }
+
+      .form-content input[type="text"],
+      .form-content input[type="password"],
+      .form-content input[type="email"],
+      .form-content select {
+        width: 100%;
+        padding: 9px 20px;
+        text-align: left;
+        border: 0;
+        outline: 0;
+        border-radius: 6px;
+        background-color: #fff;
+        font-size: 15px;
+        font-weight: 300;
+        color: #8d8d8d;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        margin-top: 16px;
+      }
+
+      .stars {
+        display: flex;
+        padding: 0 20px;
+      }
+
+      .star1,
+      .star2,
+      .star3,
+      .star4,
+      .star5 {
+        margin-right: 5px;
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background-color: rgba(32, 73, 113, 1);
+        outline: none;
+        border: 0px;
+        box-shadow: none;
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus,
+      .btn-primary:active {
+        background-color: #495056;
+        outline: none !important;
+        border: none !important;
+        box-shadow: none;
+      }
+
+      .form-content textarea {
+        position: static !important;
+        width: 100%;
+        padding: 8px 20px;
+        border-radius: 6px;
+        text-align: left;
+        background-color: #fff;
+        border: 0;
+        font-size: 15px;
+        font-weight: 300;
+        color: #8d8d8d;
+        outline: none;
+        resize: none;
+        height: 120px;
+        -webkit-transition: none;
+        transition: none;
+        margin-bottom: 14px;
+      }
+
+      .form-content textarea:hover,
+      .form-content textarea:focus {
+        border: 0;
+        background-color: #ebeff8;
+        color: #8d8d8d;
+      }
+
+      .mv-up {
+        margin-top: -9px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .invalid-feedback {
+        color: #ff606e;
+      }
+
+      .valid-feedback {
+        color: #2acc80;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-body">
+      <div class="row">
+        <div class="form-holder">
+          <div class="form-content">
+            <div class="form-items">
+              <h3>Share your experience..</h3>
+              <p>..and Write a Review</p>
+              <form class="requires-validation" novalidate>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" required>
+                    <option selected disabled value="">
+                      Choose Your Mushroom Variety
+                    </option>
+                    <option value="Reishi">Reishi</option>
+                    <option value="LionsMane">Lion's Mane</option>
+                    <option value="Shiitake">Shiitake</option>
+                    <option value="Oyster">Oyster</option>
+                    <option value="Enoki">Enoki</option>
+                    <option value="Pink Oyster">Pink Oyster</option>
+                    <option value="Blue Oyster">Blue Oyster</option>
+                    <option value="Golden Oyster">Golden Oyster</option>
+                    <option value="King Oyster">King Oyster</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a variery!</div>
+                </div>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" required>
+                    <option selected disabled value="">
+                      Choose Type Of Growing Kit
+                    </option>
+                    <option value="Ready-To-Fruit-Block">
+                      Ready-To-Fruit Block
+                    </option>
+                    <option value="Log">Hardwood Log</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a variery!</div>
+                </div>
+                <div class="col-md-12">
+                  <select class="form-select mt-3" required>
+                    <option selected disabled value="">
+                      Choose Harvest Season
+                    </option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Autumn">Autumn</option>
+                    <option value="Winter">Winter</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a variery!</div>
+                </div>
+                <div class="mb-3">
+                  <br />
+                  <label for="exampleFormControlTextarea1" class="form-label"
+                    >How was your mushroom growing experience ?</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="stars">
+                  <div class="star1"><i class="far fa-star starj1"></i></div>
+                  <div class="star2"><i class="far fa-star starj2"></i></div>
+                  <div class="star3"><i class="far fa-star starj3"></i></div>
+                  <div class="star4"><i class="far fa-star starj4"></i></div>
+                  <div class="star5"><i class="far fa-star starj5"></i></div>
+                </div>
+                <div class="form-button mt-3">
+                  <button id="submit" type="submit" class="btn btn-primary">
+                    Submit Review
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var star1 = document.querySelector(".starj1");
+      var star2 = document.querySelector(".starj2");
+      var star3 = document.querySelector(".starj3");
+      var star4 = document.querySelector(".starj4");
+      var star5 = document.querySelector(".starj5");
+
+      //making the star system work
+
+      star1.addEventListener("click", function () {
+        if (star1.classList.contains("far")) {
+          star1.classList.remove("far");
+          star1.classList.add("fas");
+        } else if (
+          star2.classList.contains("far") &&
+          star3.classList.contains("far") &&
+          star4.classList.contains("far") &&
+          star5.classList.contains("far")
+        ) {
+          star1.classList.remove("fas");
+          star1.classList.add("far");
+        }
+        if (star2.classList.contains("fas")) {
+          star2.classList.remove("fas");
+          star2.classList.add("far");
+        }
+        if (star3.classList.contains("fas")) {
+          star3.classList.remove("fas");
+          star3.classList.add("far");
+        }
+        if (star4.classList.contains("fas")) {
+          star4.classList.remove("fas");
+          star4.classList.add("far");
+        }
+        if (star5.classList.contains("fas")) {
+          star5.classList.remove("fas");
+          star5.classList.add("far");
+        }
+      });
+
+      star2.addEventListener("click", function () {
+        if (star2.classList.contains("far")) {
+          star2.classList.remove("far");
+          star2.classList.add("fas");
+          star1.classList.remove("far");
+          star1.classList.add("fas");
+        }
+        if (star3.classList.contains("fas")) {
+          star3.classList.remove("fas");
+          star3.classList.add("far");
+        }
+        if (star4.classList.contains("fas")) {
+          star4.classList.remove("fas");
+          star4.classList.add("far");
+        }
+        if (star5.classList.contains("fas")) {
+          star5.classList.remove("fas");
+          star5.classList.add("far");
+        }
+      });
+
+      star3.addEventListener("click", function () {
+        if (star3.classList.contains("far")) {
+          star3.classList.remove("far");
+          star3.classList.add("fas");
+          star2.classList.remove("far");
+          star2.classList.add("fas");
+          star1.classList.remove("far");
+          star1.classList.add("fas");
+        }
+        if (star4.classList.contains("fas")) {
+          star4.classList.remove("fas");
+          star4.classList.add("far");
+        }
+        if (star5.classList.contains("fas")) {
+          star5.classList.remove("fas");
+          star5.classList.add("far");
+        }
+      });
+
+      star4.addEventListener("click", function () {
+        if (star4.classList.contains("far")) {
+          star4.classList.remove("far");
+          star4.classList.add("fas");
+          star3.classList.remove("far");
+          star3.classList.add("fas");
+          star2.classList.remove("far");
+          star2.classList.add("fas");
+          star1.classList.remove("far");
+          star1.classList.add("fas");
+        }
+        if (star5.classList.contains("fas")) {
+          star5.classList.remove("fas");
+          star5.classList.add("far");
+        }
+      });
+
+      star5.addEventListener("click", function () {
+        if (star5.classList.contains("far")) {
+          star5.classList.remove("far");
+          star5.classList.add("fas");
+          star4.classList.remove("far");
+          star4.classList.add("fas");
+          star3.classList.remove("far");
+          star3.classList.add("fas");
+          star2.classList.remove("far");
+          star2.classList.add("fas");
+          star1.classList.remove("far");
+          star1.classList.add("fas");
+        } else {
+          star5.classList.remove("fas");
+          star5.classList.add("far");
+        }
+      });
+    </script>
+    <script>
+      (function () {
+        "use strict";
+        const forms = document.querySelectorAll(".requires-validation");
+        Array.from(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

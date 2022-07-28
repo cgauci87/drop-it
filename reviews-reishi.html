@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reishi Reviews</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!--Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/de938dcd38.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <style>
+      /*circle progress bar*/
+      .circle-wrap {
+        margin: auto;
+        width: 150px;
+        height: 150px;
+        background: #fefcff;
+        border-radius: 50%;
+        border: 1px solid #cdcbd0;
+      }
+
+      .circle-wrap .circle .mask,
+      .circle-wrap .circle .fill {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        border-radius: 50%;
+      }
+
+      .circle-wrap .circle .mask {
+        clip: rect(0px, 150px, 150px, 75px);
+      }
+
+      .circle-wrap .inside-circle {
+        width: 122px;
+        height: 122px;
+        border-radius: 50%;
+        background: #d2eaf1;
+        line-height: 120px;
+        text-align: center;
+        margin-top: 14px;
+        margin-left: 14px;
+        color: #1e51dc;
+        position: absolute;
+        z-index: 100;
+        font-weight: 700;
+        font-size: 2em;
+      }
+
+      /*rating bars*/
+
+      .fa {
+        margin-right: 5px;
+      }
+
+      .rating .fa {
+        font-size: 22px;
+      }
+
+      .rating-num {
+        margin-top: 0px;
+        font-size: 60px;
+      }
+
+      .progress {
+        margin-bottom: 5px;
+      }
+
+      .progress-bar {
+        text-align: left;
+      }
+
+      .rating-desc .col-md-3 {
+        padding-right: 0px;
+      }
+
+      .sr-only {
+        margin-left: 5px;
+        overflow: visible;
+        clip: auto;
+        height: fit-content;
+      }
+
+      .progress-bar-success {
+        background-color: #5cb85c;
+      }
+      .progress-striped .progress-bar-success {
+        background-image: -webkit-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: -o-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+      }
+      .progress-bar-info {
+        background-color: #5bc0de;
+      }
+      .progress-striped .progress-bar-info {
+        background-image: -webkit-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: -o-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+      }
+      .progress-bar-warning {
+        background-color: #f0ad4e;
+      }
+      .progress-striped .progress-bar-warning {
+        background-image: -webkit-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: -o-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+      }
+      .progress-bar-danger {
+        background-color: #d9534f;
+      }
+      .progress-striped .progress-bar-danger {
+        background-image: -webkit-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: -o-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-image: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.15) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba(255, 255, 255, 0.15) 50%,
+          rgba(255, 255, 255, 0.15) 75%,
+          transparent 75%,
+          transparent
+        );
+      }
+
+      /* color animation */
+
+      /* 3rd progress bar */
+      .mask .fill {
+        clip: rect(0px, 75px, 150px, 0px);
+        background-color: #eec44d;
+      }
+
+      .mask.full,
+      .circle .fill {
+        animation: fill ease-in-out 3s;
+      }
+
+      #testimonials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+      }
+      .testimonial-heading {
+        letter-spacing: 1px;
+        margin: 30px 0px;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url(assets/images/row-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+      }
+      .testimonial-heading h2 {
+        font-size: 4.5rem;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+        background-color: #714820;
+        color: #cdcbd0;
+        mix-blend-mode:hard-light;
+        width: 100%;
+        text-align: center;
+      }
+      .testimonial-box-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .testimonial-box {
+        width: 500px;
+        box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        padding: 20px;
+        margin: 15px;
+        cursor: pointer;
+      }
+      .profile-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px;
+      }
+      .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+      }
+      .name-user {
+        display: flex;
+        flex-direction: column;
+      }
+      .name-user strong {
+        color: #3d3d3d;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+      }
+      .name-user span {
+        color: #979797;
+        font-size: 0.8rem;
+      }
+      .reviews {
+        color: #f9d71c;
+      }
+      .box-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .client-comment p {
+        font-size: 0.9rem;
+        color: #4b4b4b;
+      }
+      .testimonial-box:hover {
+        transform: translateY(-10px);
+        transition: all ease 0.3s;
+      }
+
+      @media (max-width: 1060px) {
+        .testimonial-box {
+          width: 45%;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 790px) {
+        .testimonial-box {
+          width: 100%;
+        }
+        .testimonial-heading h1 {
+          font-size: 1.4rem;
+        }
+      }
+      @media (max-width: 340px) {
+        .box-top {
+          flex-wrap: wrap;
+          margin-bottom: 10px;
+        }
+        .reviews {
+          margin-top: 10px;
+        }
+      }
+      ::selection {
+        color: #ffffff;
+        background-color: #252525;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="testimonials">
+      <!--heading-->
+      <div class="testimonial-heading">
+        <h2>REISHI</h2>
+      </div>
+      <div class="app-review-summary">
+        <hr />
+        <div class="row grid-x vertical">
+          <div class="small-12 text-center columns medium-4">
+            <div class="panel panel--white">
+              <div class="margin-sm h1" style="font-size: 4.375rem">3.71</div>
+              <div class="reviews">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <div class="body margin-sm">based on 4 reviews</div>
+            </div>
+          </div>
+          <div class="small-12 medium-4 text-center columns">
+            <div class="panel panel--white">
+              <div class="circle-wrap">
+                <div class="circle">
+                  <div class="mask full" style="transform: rotate(135deg)">
+                    <div class="fill" style="transform: rotate(135deg)"></div>
+                  </div>
+                  <div class="mask half">
+                    <div class="fill" style="transform: rotate(135deg)"></div>
+                  </div>
+                  <div class="inside-circle">71%</div>
+                </div>
+              </div>
+              <div class="margin-sm">
+                of respondents would recommend this to a friend
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
+        <div class="small-12 medium-4 text-center columns">
+          <div class="panel panel--white">
+            <div class="row">
+              <div class="small-3 columns"></div>
+              <div class="small-7 columns">
+                <app-meter class="margin-xs" style="display: block">
+                  <div class="meter">
+                    <div class="meter__value" style="width: 57.7778%"></div>
+                  </div>
+                </app-meter>
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="well well-lg">
+                    <div class="col-md-auto">
+                      <div class="row rating-desc">
+                        <div class="col-xs-3 col-md-3 text-right">
+                          <span class="fa fa-star"></span>5
+                        </div>
+                        <div class="col-xs-8 col-md-9">
+                          <div class="progress">
+                            <div
+                              class="progress-bar progress-bar-success"
+                              role="progressbar"
+                              aria-valuenow="20"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 80%"
+                            >
+                              <span class="sr-only">80%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-3 col-md-3 text-right">
+                          <span class="fa fa-star"></span>4
+                        </div>
+                        <div class="col-xs-8 col-md-9">
+                          <div class="progress">
+                            <div
+                              class="progress-bar progress-bar-success"
+                              role="progressbar"
+                              aria-valuenow="20"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 60%"
+                            >
+                              <span class="sr-only">60%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-3 col-md-3 text-right">
+                          <span class="fa fa-star"></span>3
+                        </div>
+                        <div class="col-xs-8 col-md-9">
+                          <div class="progress">
+                            <div
+                              class="progress-bar progress-bar-info"
+                              role="progressbar"
+                              aria-valuenow="20"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 40%"
+                            >
+                              <span class="sr-only">40%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-3 col-md-3 text-right">
+                          <span class="fa fa-star"></span>2
+                        </div>
+                        <div class="col-xs-8 col-md-9">
+                          <div class="progress">
+                            <div
+                              class="progress-bar progress-bar-warning"
+                              role="progressbar"
+                              aria-valuenow="20"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 20%"
+                            >
+                              <span class="sr-only">20%</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-3 col-md-3 text-right">
+                          <span class="fa fa-star"></span>1
+                        </div>
+                        <div class="col-xs-8 col-md-9">
+                          <div class="progress">
+                            <div
+                              class="progress-bar progress-bar-danger"
+                              role="progressbar"
+                              aria-valuenow="80"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 15%"
+                            >
+                              <span class="sr-only">15%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- end row -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <!---->
+      <hr />
+      <!---->
+      <!--testimonials-box-container-->
+      <div class="testimonial-box-container">
+        <!--BOX-1-->
+        <div class="testimonial-box">
+          <!--top-->
+          <div class="box-top">
+            <!--profile-->
+            <div class="profile">
+              <!--img-->
+              <div class="profile-img">
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png"
+                  alt="avatar"
+                />
+              </div>
+              <!--name-and-username-->
+              <div class="name-user">
+                <strong>Liam mendes</strong>
+                <span>@liammendes</span>
+              </div>
+            </div>
+            <!--reviews-->
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i
+              ><!--Empty star-->
+            </div>
+          </div>
+          <!--Comments-->
+          <div class="client-comment">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem, quaerat quis? Provident temporibus architecto
+              asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
+              tenetur voluptates incidunt blanditiis sed atque cumque.
+            </p>
+          </div>
+        </div>
+        <!--BOX-2-->
+        <div class="testimonial-box">
+          <!--top-->
+          <div class="box-top">
+            <!--profile-->
+            <div class="profile">
+              <!--img-->
+              <div class="profile-img">
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png"
+                  alt="avatar"
+                />
+              </div>
+              <!--name-and-username-->
+              <div class="name-user">
+                <strong>Noah Wood</strong>
+                <span>@noahwood</span>
+              </div>
+            </div>
+            <!--reviews-->
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i
+              ><!--Empty star-->
+            </div>
+          </div>
+          <!--Comments-->
+          <div class="client-comment">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem, quaerat quis? Provident temporibus architecto
+              asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
+              tenetur voluptates incidunt blanditiis sed atque cumque.
+            </p>
+          </div>
+        </div>
+        <!--BOX-3-->
+        <div class="testimonial-box">
+          <!--top-->
+          <div class="box-top">
+            <!--profile-->
+            <div class="profile">
+              <!--img-->
+              <div class="profile-img">
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png"
+                  alt="avatar"
+                />
+              </div>
+              <!--name-and-username-->
+              <div class="name-user">
+                <strong>Oliver Queen</strong>
+                <span>@oliverqueen</span>
+              </div>
+            </div>
+            <!--reviews-->
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i
+              ><!--Empty star-->
+            </div>
+          </div>
+          <!--Comments-->
+          <div class="client-comment">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem, quaerat quis? Provident temporibus architecto
+              asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
+              tenetur voluptates incidunt blanditiis sed atque cumque.
+            </p>
+          </div>
+        </div>
+        <!--BOX-4-->
+        <div class="testimonial-box">
+          <!--top-->
+          <div class="box-top">
+            <!--profile-->
+            <div class="profile">
+              <!--img-->
+              <div class="profile-img">
+                <img
+                  src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png"
+                  alt="avatar"
+                />
+              </div>
+              <!--name-and-username-->
+              <div class="name-user">
+                <strong>Barry Allen</strong>
+                <span>@barryallen</span>
+              </div>
+            </div>
+            <!--reviews-->
+            <div class="reviews">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i
+              ><!--Empty star-->
+            </div>
+          </div>
+          <!--Comments-->
+          <div class="client-comment">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Exercitationem, quaerat quis? Provident temporibus architecto
+              asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam
+              tenetur voluptates incidunt blanditiis sed atque cumque.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

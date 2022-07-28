@@ -1,0 +1,196 @@
+Mentor advice:
+
+reusable code
+include validations
+detailed testing - how did you do test the functionalities?	
+automation testing is a must for distinction criteria
+Use Selenium for browser-based regression automation suites and tests
+
+plan models - multiple modules are a must.
+model - how the database would be structerd.
+
+database diagram
+schema
+authentication schema
+20 entries of data in database is suffient just to showcase only.
+
+
+mushREWIEWS - reviews
+mushROOMS - Forum
+
+Sources:
+
+Creating Models — Django
+https://medium.com/django-rest/lets-build-a-basic-product-review-backend-with-drf-part-1-652dd9b95485
+
+
+Django REST framework - a powerful and flexible toolkit for building Web APIs.
+https://www.django-rest-framework.org/
+
+
+Database Setup - By default, the configuration uses SQLite
+https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+
+Snapshot - User Reviews for different types of mushrooms
+Specific item review page: https://www.uncommongoods.com/product/shiitake-mushroom-log-kit
+
+
+Layout ideas - inspired by: 
+
+Sawdust Grow Kit  vs sawdust grow kithttps://www.fungially.com/blogs/growing-mushrooms/mushroom-log-kit-3-reasons-buy-sawdust-grow-kit-instead
+
+
+*************HTML Pages***************
+
+L A N D I N G  P A G E
+
+It will be consist of an h1 heading, followed by an h2. A Grid containing images of different types will be displayed so the user would be encouraged to click on a specific type.
+Once the user click on a variety; A hidden div will be displayed - That div will contain app-review-highlights and reviews of that specific type.
+
+The logic of app-review-highlights would need to be based on variety(type) , so when user pick the variety - highlights of that specific variety reviews will be displayed 
+(followed by the reviews of such type).
+
+Growing Kits AND Logs must be seperated by tags and drop down menu to be displayed on top (to filter).
+
+
+A B O U T  U S
+
+It will consist the purpose of the site, something about who we are and why we do it.
+
+Grow Your Own
+Gourmet Mushrooms
+
+https://www.mushroom-cultivation.com/blog/the-mushroom-learning-network-community
+
+
+K N O W  Y O U R  M U S H R O O M S
+
+Knowledge base about each type which is listed in reviews. 
+The content will be pulled from wikipedia-api	
+
+https://www.mediawiki.org/wiki/API:Get_the_contents_of_a_page#:~:text=There%20are%20three%20main%20methods,API%20of%20the%20TextExtracts%20extension.
+https://www.mediawiki.org/wiki/API:Main_page
+https://stackoverflow.com/questions/627594/is-there-a-wikipedia-api
+
+
+LOGIN icon on top right corner that will take the user to Login Page. Once user clicks - a form must be displayed to input username & password.
+->  The login page must also contain "Need an account? Sign up"  & "Forgot password?" and validation (check user if already registered and check input for non-allowed characters).
+
+
+Structure: Landing Page w/reviews , Who We Are, Know your mushrooms, Mush!Forum, Mush!Contact, Sign in/ Register
+
+
+
+add location icon to each review  - DONE
+add tags to each review - DONE
+Carausel: stop loop on hover - DONE
+add registration form  - DONE
+add review input - DONE
+add image - DONE
+add footer - DONE
+add "Write a review" button just above the footer (to be shown only on landing page) - DONE
+add skill level drop-down on registration form and usr-account - DONE
+add account page - WIP
+add carausel in reviews - WIP
+
+
+add Approval Page https://codepen.io/lisaburleson/pen/RwrbNYL - Pending
+add relative date - Pending
+add script in usr-account page: 
+If user is registered as a Beginner - then show 1 bulb on the profile photo, if Intermediate - show 2 bulbs , if Expert show 3 bulbs. 
+These should show on both cases - If user keeps the default avatar photo or upload his own.
+The profile photo will be displayed in multiple pages: usr-account page, reviews page and forum page.
+
+Priority Pages:
+
+Approval of the Posts;
+Approval of the Reviews;
+add post by the user;
+
+Upon user clicks "Write Review" (bottom)  - If the user is logged in , then the user will be redirected to the write-a-review.html
+If the user is not logged in, then the user will be redirected to the login page. 
+If the user is not registered, he can sign up from the login page.
+
+
+
+
+
+
+############################ Back-End ############################
+
+####  REVIEWS  #####
+
+Sort by: Ratings
+
+####  USER REGISTRATION FORM  #####
+
+Auto-generating username when adding a user with django (Combination of first name + last name) - If already exists - add suffix (start from digit 2) . i.e. chrisgauci2 .
+
+SKILL LEVEL tags
+beginner
+intermediate
+advanced
+experimental
+
+#### WRITE A REVIEW FORM ####
+
+Get the below data from db.. registerd users table:
+
+First Name
+Last Name
+Username
+Location
+
+Send a Notifiction to the user inbox once the user is created.
+############################ Front-End ############################
+
+Form input - Write a review
+
+Star rating input
+
+Dropdown list (required) - user has to select which season cultivated the mushroom . i.e. Spring / Summer / Autumn / Winter
+The selection of the season must be mapped in the UI (as a tag)
+
+Dropdown list (required) - user has to select the growing medium. i.e. Growing Kit or Logs
+
+Dropdown list (mushroom  type)
+
+Upload an image 
+
+SUBMIT
+
+`
+Account Page - user can upload their own profile photo - default avatar
+Change Password option
+
+
+
+FORUM page 
+
+Heading uncover the full potential of your mushroom cultivation - READ ASK 
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

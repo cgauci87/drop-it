@@ -1,0 +1,47 @@
+/*-------------- navbar -------------------- */
+
+.navbar {
+	height: 45px; /*fixed height*/
+	width: 100%;
+  }
+
+.container {
+	padding-top: 2%;
+	overflow: hidden;
+	position: relative;
+}
+.navbar-logo {
+    position: fixed;
+	padding-top: 7%;
+}
+.nav-item {
+	padding: 10%;
+	white-space:nowrap;
+}
+
+.profile-menu {
+	right: 0;
+	left: unset;
+}
+.profile-menu .fa-fw {
+	margin-right: 10px;
+}
+.toggle-change::after {
+	border-top: 0;
+	border-bottom: 0.3em solid;
+}
+
+.navbar-logo
+{
+float:left
+}
+
+.menu {
+  position: relative;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

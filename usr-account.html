@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mush! Community - My Account</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <!--Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/de938dcd38.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--JS-->
+    <script src="assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <!--Styling-->
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+      body {
+        background: whitesmoke;
+        font-family: "Open Sans", sans-serif;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      /*============Profile Photo===============*/
+
+      .container {
+        max-width: 960px;
+        margin: 30px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 20px;
+        text-align: center;
+        margin: 20px 0 20px;
+      }
+
+      h1 small {
+        display: block;
+        font-size: 15px;
+        padding-top: 8px;
+        color: gray;
+      }
+
+      .avatar-upload {
+        position: relative;
+        max-width: 205px;
+        margin: 50px auto;
+      }
+
+      .avatar-upload .avatar-edit {
+        position: absolute;
+        right: 0px;
+        z-index: 1;
+        top: 0px;
+      }
+
+      .avatar-upload .beginner {
+        position: absolute;
+        right: -30px;
+        z-index: 10;
+        top: 40px;
+      }
+
+      .avatar-upload .intermediate {
+        position: absolute;
+        right: -38px;
+        z-index: 10;
+        top: 80px;
+      }
+
+      .avatar-upload .expert {
+        position: absolute;
+        right: -32px;
+        z-index: 10;
+        top: 120px;
+      }
+
+      .avatar-upload .avatar-edit input {
+        display: none;
+      }
+
+      .avatar-upload .avatar-edit input + label {
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 0;
+        border-radius: 100%;
+        background: #ffffff;
+        border: 1px solid transparent;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+        font-weight: normal;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .avatar-upload .avatar-edit input + label:hover {
+        background: #f1f1f1;
+        border-color: #d6d6d6;
+      }
+
+      .avatar-upload .avatar-edit input + label:after {
+        content: "\f040";
+        font-family: "FontAwesome";
+        color: #757575;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        margin: auto;
+      }
+
+      .avatar-upload .avatar-preview {
+        width: 192px;
+        height: 192px;
+        position: relative;
+        border-radius: 100%;
+        border: 6px solid #f8f8f8;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .avatar-upload .avatar-preview > div {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      /*==============account edit===================*/
+
+      h1 {
+        font-size: 1.2em;
+        margin-top: 2em;
+        margin-bottom: 0.5em;
+      }
+
+      h4 {
+        font-size: 0.825em;
+        margin: 0;
+        opacity: 0.35;
+        line-height: 1.64;
+      }
+
+      .l-section {
+        max-width: 360px;
+        margin: 50px auto 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        position: relative;
+        border-radius: 3px;
+      }
+
+      .c-section__heading {
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 1.5em;
+        float: left;
+        width: 60%;
+      }
+      .c-link {
+        color: #1976d2;
+        font-size: 0.875em;
+        float: right;
+        width: 40%;
+        text-align: right;
+        cursor: pointer;
+      }
+      .c-link:hover {
+        color: #0d47a1;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        padding: 12px 15px;
+        border-radius: 2px;
+        border: 1px solid #efefef;
+        outline: none;
+        -webkit-appearance: none;
+        transition: all 0.2s ease-in-out;
+      }
+
+      input:focus {
+        border-color: #888;
+      }
+
+      button {
+        background: #1a1a1a;
+        color: white;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        margin-top: 1em;
+        display: inline-block;
+      }
+
+      button[disabled] {
+        background: #eceff1;
+        border: 1px solid #cfd8dc;
+        transition: all 0.2s ease-in-out;
+        cursor: none;
+        color: #b0bec5;
+      }
+
+      button[disabled]:hover {
+        transition: all 0.2s ease-in-out;
+      }
+
+      button:hover {
+        opacity: 1;
+        transition: all 0.2s ease-in-out;
+      }
+      label {
+        font-size: 0.925em;
+        font-weight: bold;
+        color: #1a1a1a;
+        padding-top: 0.5em;
+        display: inline-block;
+      }
+      .form {
+        clear: both;
+      }
+      .form--disabled input,
+      textarea,
+      select {
+        padding-left: 0;
+        padding-top: 4px;
+        border: 0 solid #efefef;
+        background: white;
+        height: auto;
+        color: #31373b;
+        font-size: 0.8em;
+        transition: all 0.2s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="profile-photo position-relative container">
+      <div class="avatar-upload position-absolute top-0 start-0">
+        <div class="avatar-edit">
+          <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
+          <label for="imageUpload"></label>
+        </div>
+        <div class="avatar-edit">
+          <div class="beginner">
+            <img
+              src="assets/images/knowledge-icon.png"
+              alt="Knowledge level"
+              width="30"
+              height="30"
+            />
+          </div>
+        </div>
+        <div class="avatar-edit">
+          <div class="intermediate">
+            <img
+              src="assets/images/knowledge-icon.png"
+              alt="Knowledge level"
+              width="30"
+              height="30"
+            />
+          </div>
+        </div>
+        <div class="avatar-edit">
+          <div class="expert">
+            <img
+              src="assets/images/knowledge-icon.png"
+              alt="Knowledge level"
+              width="30"
+              height="30"
+            />
+          </div>
+        </div>
+        <div class="avatar-preview">
+          <div
+            id="imagePreview"
+            style="
+              background-image: url('assets/images/user-default-avatar.png');
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div class="l-section">
+      <span class="c-link js-toggleForm">click to edit</span>
+      <div class="form">
+        <label>name</label>
+        <input type="text" name="name" value="john" />
+        <label>email</label>
+        <input type="email" name="email" value="gpelelis@gmail.com" />
+        <label>status</label>
+        <input name="status" value="Student of di.uoa.gr" />
+        <label>eyes</label>
+        <select name="eyes">
+          <option value="one">green eyes</option>
+          <option value="two">blue eyes</option>
+          <option value="three">red eyes</option>
+        </select>
+        <button type="submit" disabled>submit</button>
+      </div>
+    </div>
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $("#imagePreview").css(
+              "background-image",
+              "url(" + e.target.result + ")"
+            );
+            $("#imagePreview").hide();
+            $("#imagePreview").fadeIn(650);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $("#imageUpload").change(function () {
+        readURL(this);
+      });
+    </script>
+  </body>
+</html>
