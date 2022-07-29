@@ -1,7 +1,12 @@
 Mentor advice:
 
 reusable code
-include validations
+validation in terms of deletion (Are you sure you want to delete this?)
+validation re. email address
+
+login in / log out / register / validation
+
+
 detailed testing - how did you do test the functionalities?	
 automation testing is a must for distinction criteria
 Use Selenium for browser-based regression automation suites and tests
@@ -92,8 +97,8 @@ add footer - DONE
 add "Write a review" button just above the footer (to be shown only on landing page) - DONE
 add skill level drop-down on registration form and usr-account - DONE
 add account page - WIP
+add password reset popup - WIP
 add carausel in reviews - WIP
-
 
 add Approval Page https://codepen.io/lisaburleson/pen/RwrbNYL - Pending
 add relative date - Pending
