@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/angular.js"></script>
+    <script src="apis_handler.js"></script>
     <!--Styling-->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
@@ -210,13 +211,13 @@
             <div class="form-items">
               <h3>Register Today..</h3>
               <p>..and Be Part Of Mush! Community</p>
-              <form class="requires-validation" novalidate>
+              <form class="requires-validation" method="post" novalidate onsubmit="return registerUser(); return false" id="user-registrations-form">
                 <div class="col-auto">
                   <input
                     class="form-control"
                     type="text"
                     maxlength="24"
-                    name="fname"
+                    name="first_name"
                     placeholder="First Name"
                     required
                   />
@@ -230,7 +231,7 @@
                     class="form-control"
                     type="text"
                     maxlength="24"
-                    name="lname"
+                    name="last_name"
                     placeholder="Last Name"
                     required
                   />
@@ -251,7 +252,7 @@
                 </div>
 
                 <div class="col-auto">
-                  <select class="form-select mt-3" required>
+                  <select name="location" class="form-select mt-3" required>
                     <option selected disabled value="">Country</option>
                     <option value="AF">Afghanistan</option>
                     <option value="AX">Aland Islands</option>
@@ -544,7 +545,7 @@
                     <input
                       class="form-check-input"
                       type="radio"
-                      name="level"
+                      name="skill_level"
                       required
                     />
                     <label class="form-check-label" for="option1">

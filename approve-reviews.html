@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mush! Community - My Account</title>
+    <!--Bootstrap CSS-->
+    <!--    <link rel="stylesheet" href="assets/css/bootstrap.css" />-->
+    <!--Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/de938dcd38.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--JS-->
+    <script src="assets/js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <!--Styling-->
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .wrapper {
+        margin: 100px 10px;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      .radio-toolbar input[type="radio"] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+      }
+
+      .radio-toolbar label {
+        display: inline-block;
+        background-color: #ddd;
+        padding: 4px 12px;
+        font-family: sans-serif, Arial;
+        font-size: 14px;
+        border: 2px solid #444;
+      }
+
+      .radio-toolbar label:first-of-type {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      .radio-toolbar label:nth-of-type(2) {
+        position: relative;
+        left: -6px;
+      }
+
+      .radio-toolbar label:last-of-type {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+        left: -12px;
+      }
+
+      td:first-child i {
+        visibility: hidden;
+      }
+
+      td:first-child:hover i {
+        visibility: visible;
+      }
+
+      td:first-child a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      i.fas {
+        margin-right: 3px;
+      }
+
+      .radio-toolbar label:hover {
+        background-color: #dfd;
+      }
+
+      .radio-toolbar input[type="radio"]:checked + label {
+        background-color: #bfb;
+        border-color: #4c4;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      button {
+        padding: 6px 20px;
+        border-radius: 5px;
+        transition: all 100ms ease-in-out;
+      }
+
+      button:hover {
+        background-color: #dfd;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      #changesCount {
+        font-size: 0.7rem;
+        color: #474646;
+      }
+
+      .review-content {
+        width: 800px;
+        min-width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="radio-toolbar">
+        <input type="radio" id="approveAll" name="allReqs" value="approve" />
+        <label for="approveAll"
+          ><i class="fas fa-check-circle"></i> Approve All</label
+        >
+
+        <input type="radio" id="denyAll" name="allReqs" value="reject" />
+        <label for="denyAll"
+          ><i class="fas fa-times-circle"></i> Reject All</label
+        >
+      </div>
+    <hr>
+      <table id="myTable">
+        <tr>
+          <td>Username</td>
+          <td>Review</td>
+          <td>Decision</td>
+          <td>Attachments</td>
+          <td>Variety</td>
+        </tr>
+
+        <tbody>
+          <tr>
+            <td>
+              <a href="#0"><i class="fas fa-pencil-alt"></i>chris.gauci</a>
+            </td>
+            <td class="review-content">
+              I've been taken it in powder form for 5 month now. It regulated my
+              bloodpressure prolem and even made my acid reflux dissappear - I'm
+              not sure though about the second one, if reishi did it or not. But
+              probably it did.
+            </td>
+            <td>
+              <div class="radio-toolbar">
+                <input type="radio" id="approve1" name="dec1" value="approve" />
+                <label for="approve1"
+                  ><i class="fas fa-check-circle"></i> Approve</label
+                >
+
+                <input type="radio" id="deny1" name="dec1" value="reject" />
+                <label for="deny1"
+                  ><i class="fas fa-times-circle"></i> Reject</label
+                >
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#0"><i class="fas fa-pencil-alt"></i>john.doe</a>
+            </td>
+            <td class="review-content">
+              I've had Fibromyalgia for 34 years and it has helped with the
+              inflammation in my legs. I feel so much better now.
+            </td>
+            <td>
+              <div class="radio-toolbar">
+                <input type="radio" id="approve2" name="dec2" value="approve" />
+                <label for="approve2"
+                  ><i class="fas fa-check-circle"></i> Approve</label
+                >
+
+                <input type="radio" id="deny2" name="dec2" value="reject" />
+                <label for="deny2"
+                  ><i class="fas fa-times-circle"></i> Reject</label
+                >
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="btn-group">
+      <button id="saveChanges">
+        <i class="fas fa-save"></i>Save Changes (<span id="changesCount"
+          >0 changes</span
+        >)
+      </button>
+    </div>
+  </body>
+</html>

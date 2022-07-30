@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Mush! Community - My Account</title>
     <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+<!--    <link rel="stylesheet" href="assets/css/bootstrap.css" />-->
     <!--Font Awesome -->
     <script
       src="https://kit.fontawesome.com/de938dcd38.js"
@@ -327,7 +327,11 @@
   </head>
 
   <body>
-    <div class="profile-photo position-relative container">
+    <div class="l-section position-relative">
+      <div class="form position-absolute">
+        <div class="row">
+          <div class="form-holder">
+            <div class="profile-photo position-relative container">
       <div class="avatar-upload position-absolute top-50 start-50 translate-middle">
         <div class="avatar-edit">
           <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" />
@@ -373,10 +377,6 @@
         </div>
       </div>
     </div>
-    <div class="l-section position-relative">
-      <div class="form position-absolute">
-        <div class="row">
-          <div class="form-holder">
             <div class="form-content">
               <div class="form-items">
                 <h3>Account Details</h3>
@@ -720,18 +720,18 @@
                 <button type="submit" disabled>submit</button>
               </div>
             </div>
+                <!--Password reset wip-->
+            <div class="password-reset position-relative container">
+              <div class="position-absolute top-50 end-0 translate-middle-y">
+                <img
+                src="assets/images/password-reset-icon.png"
+                alt="password reset"
+                width="170"
+              />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <!--Password reset wip-->
-    <div class="password-reset position-relative container">
-      <div class="position-absolute top-50 end-0 translate-middle-y">
-        <img
-        src="assets/images/password-reset-icon.png"
-        alt="password reset"
-        width="170"
-      />
       </div>
     </div>
 

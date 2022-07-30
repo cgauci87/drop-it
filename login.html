@@ -218,6 +218,7 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
+    <script src="apis_handler.js"></script>
     <!--Styling -->
     <link rel="stylesheet" href="assets/css/layout-style.css" />
   </head>
@@ -225,10 +226,11 @@
     <section class="section-login">
       <div class="container">
         <div class="form-container">
-          <form class="form">
+          <form class="form" method="post" novalidate onsubmit="loginUser(); return false" id="user-login-form">
             <div class="form-control">
               <input
                 type="text"
+                name="username"
                 class="input username"
                 placeholder="Username"
               />
@@ -236,11 +238,12 @@
             <div class="form-control">
               <input
                 type="password"
+                name="password"
                 class="input password"
                 placeholder="Password"
               />
             </div>
-            <button class="btn btn-login">Log In</button>
+            <button type="submit" class="btn btn-login">Log In</button>
             <input type="checkbox" id="switch" /><label for="switch"
               >Remember me</label
             >
@@ -249,7 +252,7 @@
           </form>
           <div class="sign-up">
             <h2 class="text">Don't have an Account?</h2>
-            <button class="btn btn-sign-up">Sign Up</button>
+            <a href="usr-registration.html"> <button class="btn btn-sign-up">Sign Up</button></a>
           </div>
         </div>
       </div>
