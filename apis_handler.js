@@ -1,4 +1,4 @@
-var apiBaseUrl = "http://127.0.0.1:8000";
+var apiBaseUrl = "http://127.0.0.1:5000";
 var userRegistrationUrl = apiBaseUrl + "/users/registration/";
 var userLoginUrl = apiBaseUrl + "/users/sign-in/";
 var productUrl = apiBaseUrl + "/products/";
