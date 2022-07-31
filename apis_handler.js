@@ -1,4 +1,4 @@
-var apiBaseUrl = "http://127.0.0.1:5000";
+var apiBaseUrl = "https://8000-cgauci87-dropit-jwrp8dio999.ws-eu54.gitpod.io/";
 var userRegistrationUrl = apiBaseUrl + "/users/registration/";
 var userLoginUrl = apiBaseUrl + "/users/sign-in/";
 var productUrl = apiBaseUrl + "/products/";
