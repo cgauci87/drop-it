@@ -1,4 +1,4 @@
-var apiBaseUrl = "https://5500-cgauci87-dropit-yzj1t7isrwm.ws-eu54.gitpod.io/";
+var apiBaseUrl = "https://8000-cgauci87-dropit-3bln3clvsyj.ws-eu54.gitpod.io";
 var userRegistrationUrl = apiBaseUrl + "/users/registration/";
 var userLoginUrl = apiBaseUrl + "/users/sign-in/";
 var productUrl = apiBaseUrl + "/products/";
